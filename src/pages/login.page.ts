@@ -10,6 +10,7 @@ export class LoginPage {
   loggedView = this.page.locator('h1').filter({ hasText: /^My account$/ });
   passwordError = this.page.locator('[data-test="password-error"]');
   emailError = this.page.locator('[data-test="email-error"]');
+  loginError = this.page.locator('[data-test="login-error"]');
   constructor(private page: Page) {}
 
   async goto(): Promise<void> {
