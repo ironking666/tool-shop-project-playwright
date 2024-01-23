@@ -1,12 +1,15 @@
 import { Page } from 'playwright/test';
 
 export class ProductPage {
+  //url = '/#/product/01HM6T63S4C4TZ93SX0QBVWE8C';
   product = this.page
     .locator('.card-title')
     .filter({ hasText: 'Combination Pliers' });
   addToCartButton = this.page.locator('[data-test="add-to-cart"]');
   cartIcon = this.page.locator('[data-test="nav-cart"]');
   expectedMessage = this.page.getByText('Product added to shopping');
+  alertMessage = this.page.locator('.toast-body');
+  addToFavoritesButton = this.page.locator('[data-test="add-to-favorites"]');
 
   constructor(private page: Page) {}
 
@@ -24,5 +27,9 @@ export class ProductPage {
   }
   async navigateToCart(): Promise<void> {
     await this.cartIcon.click();
+  }
+
+  async addToFavorites(): Promise<void> {
+    await this.addToFavoritesButton.click();
   }
 }
