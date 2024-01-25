@@ -6,6 +6,9 @@ export class CheckoutPage {
   expectedMessage = this.page.getByText('Product added to shopping');
   priceInCart = this.page.locator('td.col-md-2.text-end').nth(1);
   quantity = this.page.locator('input.form-control.quantity');
+  proceedToCheckout = this.page.locator('[data-test="proceed-1"]');
+  proceedToCheckout2 = this.page.locator('[data-test="proceed-2"]');
+  proceedToCheckout3 = this.page.locator('[data-test="proceed-3"]');
 
   constructor(private page: Page) {}
 
