@@ -21,9 +21,9 @@ test.describe('Verify shopping flow', () => {
     await checkoutPage.proceedToCheckout.click();
     await loginPage.login();
     await checkoutPage.proceedToCheckout2.click();
-    await page.waitForTimeout(400);
-    await registerPage.state.fill(randomUserData.state);
+    await page.waitForLoadState('networkidle');
     await registerPage.postcode.fill(randomUserData.postcode);
+    await registerPage.state.fill(randomUserData.state);
     await checkoutPage.proceedToCheckout3.click();
     await paymentView.cashOnDeliveryPayment();
     await expect.soft(paymentView.paymentSuccessAlert).toBeVisible();
@@ -31,7 +31,6 @@ test.describe('Verify shopping flow', () => {
     await expect(paymentView.orderConfirmation).toBeVisible();
   });
   test('user cannot place an order as a guest @REQ-06-02', async ({ page }) => {
-    const loginPage = new LoginPage(page);
     const productPage = new ProductPage(page);
     const homePage = new HomePage(page);
     const checkoutPage = new CheckoutPage(page);
@@ -40,6 +39,6 @@ test.describe('Verify shopping flow', () => {
     await productPage.addProductToCart();
     await productPage.navigateToCart();
     await checkoutPage.proceedToCheckout.click();
-    await expect(checkoutPage.proceedToCheckout2).not.toBeVisible();
+    await expect(checkoutPage.proceedToCheckout2).toBeHidden();
   });
 });

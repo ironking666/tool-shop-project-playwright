@@ -18,6 +18,7 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "error",
+    "playwright/no-networkidle": "off",
     "no-console": "warn",
     "prettier/prettier": "warn"
   }
