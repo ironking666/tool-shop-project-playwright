@@ -17,3 +17,9 @@ export const randomUserData = {
   randomUserEmail: faker.internet.email(),
   randomUserPassword: faker.internet.password(),
 };
+export const paymentsData = {
+  randomGiftCardNumber: faker.datatype.number({ min: 1111, max: 9999 }),
+  randomValidationCode: faker.datatype.number({ min: 100, max: 999 }),
+  randomBankName: faker.finance.accountName(),
+  randomAccountNumber: faker.finance.accountNumber(),
+};
