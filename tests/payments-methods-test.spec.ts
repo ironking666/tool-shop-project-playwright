@@ -49,4 +49,9 @@ test.describe('Verify payments method', () => {
     await paymentView.buyNowPayLatterPayment();
     await expect.soft(paymentView.paymentSuccessAlert).toBeVisible();
   });
+
+  test('user can pay by credit card @REQ-07-05', async () => {
+    await paymentView.creditCardPayment();
+    await expect.soft(paymentView.paymentSuccessAlert).toBeVisible();
+  });
 });

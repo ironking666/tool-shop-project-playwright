@@ -22,4 +22,6 @@ export const paymentsData = {
   randomValidationCode: faker.datatype.number({ min: 100, max: 999 }),
   randomBankName: faker.finance.accountName(),
   randomAccountNumber: faker.finance.accountNumber(),
+  randomCreditCardNumber: faker.finance.creditCardNumber(),
+  randomCSV: faker.finance.creditCardCVV().toString(),
 };
