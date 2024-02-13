@@ -4,7 +4,6 @@ import { expect, test } from '@playwright/test';
 test.describe('Verifying search functionality', () => {
   let homePage: HomePage;
   test.beforeEach(async ({ page }) => {
-    let expectedText = 'Square Ruler';
     homePage = new HomePage(page);
     await homePage.goto();
   });
