@@ -1,17 +1,20 @@
+import { AccountPage } from '../src/pages/account.page';
 import { LoginPage } from '../src/pages/login.page';
 import { randomUserData, testUser } from '../src/test-data/user.data';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify login', () => {
   let loginPage: LoginPage;
+  let accountPage: AccountPage;
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     await loginPage.goto();
   });
-  test('login with correct credentials @REQ-03-01', async ({}) => {
+  test('login with correct credentials @REQ-03-01', async ({ page }) => {
+    accountPage = new AccountPage(page);
     await loginPage.login();
 
-    await expect(loginPage.loggedView).toBeVisible();
+    await expect(accountPage.loggedView).toBeVisible();
   });
   test('reject with empty login and password @REQ-03-02', async ({}) => {
     await loginPage.userEmailInput.fill('');

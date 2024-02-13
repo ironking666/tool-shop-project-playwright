@@ -7,7 +7,6 @@ export class LoginPage {
   userEmailInput = this.page.locator('[data-test="email"]');
   userPasswordInput = this.page.locator('[data-test="password"]');
   logInButton = this.page.locator('[data-test="login-submit"]');
-  loggedView = this.page.locator('h1').filter({ hasText: /^My account$/ });
   passwordError = this.page.locator('[data-test="password-error"]');
   emailError = this.page.locator('[data-test="email-error"]');
   loginError = this.page.locator('[data-test="login-error"]');
