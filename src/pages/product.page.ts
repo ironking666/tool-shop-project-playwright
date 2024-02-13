@@ -1,10 +1,7 @@
 import { Page } from 'playwright/test';
 
 export class ProductPage {
-  //url = '/#/product/01HM6T63S4C4TZ93SX0QBVWE8C';
-  product = this.page
-    .locator('.card-title')
-    .filter({ hasText: 'Combination Pliers' });
+  product = this.page.locator('.card-title').filter({ hasText: 'Wood Saw' });
   addToCartButton = this.page.locator('[data-test="add-to-cart"]');
   cartIcon = this.page.locator('[data-test="nav-cart"]');
   expectedMessage = this.page.getByText('Product added to shopping');
