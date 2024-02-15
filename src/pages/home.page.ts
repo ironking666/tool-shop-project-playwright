@@ -6,6 +6,15 @@ export class HomePage {
   searchInput = this.page.locator('input[data-test="search-query"]');
   searchButton = this.page.locator('button[data-test="search-submit"]');
   searchReset = this.page.locator('button[data-test="search-reset"]');
+  handToolsCheckbox = this.page
+    .locator('label')
+    .filter({ hasText: ' Hand Tools ' });
+  brandCheckbox = this.page
+    .locator('label')
+    .filter({ hasText: ' MightyCraft Hardware' });
+
+  cardsAmount = this.page.locator('li').filter({ hasText: '4' });
+
   constructor(private page: Page) {}
 
   async goto(): Promise<void> {
