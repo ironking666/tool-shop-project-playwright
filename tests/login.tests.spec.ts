@@ -10,6 +10,9 @@ test.describe('Verify login', () => {
     loginPage = new LoginPage(page);
     await loginPage.goto();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
   test('login with correct credentials @REQ-03-01', async ({ page }) => {
     accountPage = new AccountPage(page);
     await loginPage.login();

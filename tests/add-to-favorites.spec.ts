@@ -13,5 +13,6 @@ test.describe('Verify add to favorites function', () => {
     await productPage.product.click();
     await productPage.addToFavorites();
     await expect(productPage.alertMessage).toHaveText(expectedMessage);
+    await page.close();
   });
 });

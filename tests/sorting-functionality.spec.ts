@@ -7,6 +7,9 @@ test.describe('Verifying sort functionality', () => {
     homePage = new HomePage(page);
     await homePage.goto();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('user can sort by Name(A-Z) @REQ-08-01', async () => {
     const expectedText = ' Adjustable Wrench ';

@@ -20,6 +20,9 @@ test.describe('Verify shopping flow', () => {
     await productPage.navigateToCart();
     await checkoutPage.proceedToCheckout.click();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('user can buy and pay for the order @REQ-06-01', async ({ page }) => {
     const loginPage = new LoginPage(page);

@@ -32,6 +32,9 @@ test.describe('Verify payments method', () => {
     await registerPage.state.fill(randomUserData.state);
     await checkoutPage.proceedToCheckout3.click();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('user can pay by cash on delivery @REQ-07-01', async () => {
     await paymentView.cashOnDeliveryPayment();

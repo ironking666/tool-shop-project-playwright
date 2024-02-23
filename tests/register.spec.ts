@@ -9,5 +9,6 @@ test.describe('Verify register', () => {
     await registerPage.goto();
     await registerPage.register();
     await expect(loginPage.loginForm).toBeVisible();
+    await page.close();
   });
 });

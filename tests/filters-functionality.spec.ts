@@ -8,6 +8,9 @@ test.describe('Verifying filters functionality', () => {
     await homePage.goto();
     await expect(homePage.cardsAmount).toBeVisible();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('user can filter by category @REQ-10-01', async () => {
     const expectedText = 'Claw Hammer with Shock Reduction Grip';

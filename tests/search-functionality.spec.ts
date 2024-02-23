@@ -7,6 +7,9 @@ test.describe('Verifying search functionality', () => {
     homePage = new HomePage(page);
     await homePage.goto();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('user can search by search area @REQ-09-01', async () => {
     const expectedText = 'Square Ruler';

@@ -17,6 +17,9 @@ test.describe('Verify service main pages', () => {
     const title = await homePage.title();
     expect(title).toContain(expectedTitle);
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
 
   test('login page verify @REQ-01-02', async ({ page }) => {
     const loginPage = new LoginPage(page);

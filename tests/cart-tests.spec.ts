@@ -11,6 +11,10 @@ test.describe('Verify cart', () => {
     productPage = new ProductPage(page);
     await homePage.goto();
   });
+  test.afterAll(async ({ page }) => {
+    await page.close();
+  });
+
   test('user can add product to cart @REQ-04-01', async ({}) => {
     await productPage.addProductToCart();
 
